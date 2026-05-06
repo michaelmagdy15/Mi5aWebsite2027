@@ -1,0 +1,86 @@
+{
+  "generated": "2026-05-06T17:43:20.993Z",
+  "count": 8,
+  "projects": [
+    {
+      "id": "ehe-design-studio",
+      "title": "EHE DESIGN STUDIO",
+      "category": "WEB DESIGN",
+      "description": "Full website design and development for EHE Design Studio — layout, visual identity, and UI.",
+      "link": "https://ehedesignstudio.com/",
+      "featured": true,
+      "order": 1,
+      "image": "/images/EHE-1024x509.jpg"
+    },
+    {
+      "id": "refuel-eg-idea",
+      "title": "REFUEL.EG + IDEA",
+      "category": "VISUAL EFFECTS",
+      "description": "Cinematic VFX reel created for the Refuel.EG campaign featuring AI-enhanced motion compositing.",
+      "link": "https://www.instagram.com/reel/C_kyJWZCxi_/",
+      "featured": true,
+      "order": 2,
+      "image": "/images/Screenshot_10.jpg"
+    },
+    {
+      "id": "guitar-on-fire",
+      "title": "GUITAR ON FIRE",
+      "category": "VISUAL EFFECTS + AI",
+      "description": "AI-powered fire compositing on a guitar performance — pushing the limits of creative VFX.",
+      "link": "https://www.instagram.com/reel/C_0hMXpinbO/",
+      "featured": true,
+      "order": 3,
+      "image": "/images/Screenshot_12-852x1024.jpg"
+    },
+    {
+      "id": "ehe-design-studio-v2",
+      "title": "EHE DESIGN STUDIO V2",
+      "category": "WEB DESIGN",
+      "description": "Redesign iteration for EHE Design Studio with improved layout and visual refinements.",
+      "link": "#",
+      "featured": false,
+      "order": 4,
+      "image": "/images/Screenshot_9-1024x601.jpg"
+    },
+    {
+      "id": "visual-reel",
+      "title": "VISUAL REEL",
+      "category": "VISUAL EFFECTS",
+      "description": "A showcase reel of motion graphics and visual effects work across multiple projects.",
+      "link": "#",
+      "featured": true,
+      "order": 5,
+      "image": "/images/Screenshot_8.jpg"
+    },
+    {
+      "id": "portrait-session",
+      "title": "PORTRAIT SESSION",
+      "category": "PHOTOGRAPHY",
+      "description": "High-end portrait photography with creative lighting and post-processing.",
+      "link": "#",
+      "featured": false,
+      "order": 6,
+      "image": "/images/Screenshot_11.jpg"
+    },
+    {
+      "id": "creative-edit",
+      "title": "CREATIVE EDIT",
+      "category": "PHOTO EDITING",
+      "description": "Creative photo manipulation and compositing for social media content.",
+      "link": "#",
+      "featured": false,
+      "order": 7,
+      "image": "/images/Screenshot_14.jpg"
+    },
+    {
+      "id": "motion-reel",
+      "title": "MOTION REEL",
+      "category": "MOTION DESIGN",
+      "description": "Dynamic motion design reel featuring kinetic typography and animated brand elements.",
+      "link": "#",
+      "featured": false,
+      "order": 8,
+      "image": "/images/Screenshot_13-1024x576.jpg"
+    }
+  ]
+}
