@@ -1,4 +1,5 @@
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect } from 'react'
+import { useForm, ValidationError } from '@formspree/react'
 import './Contact.css'
 
 function useReveal(ref) {
@@ -24,24 +25,7 @@ export default function Contact() {
   const pageRef = useRef(null)
   useReveal(pageRef)
 
-  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
-  const [status, setStatus] = useState('idle')
-
-  const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
-
-  const handleSubmit = async e => {
-    e.preventDefault()
-    setStatus('sending')
-    try {
-      const res = await fetch('https://formspree.io/f/xpwznnql', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(form),
-      })
-      if (res.ok) { setStatus('sent'); setForm({ name: '', email: '', subject: '', message: '' }) }
-      else setStatus('error')
-    } catch { setStatus('error') }
-  }
+  const [state, handleSubmit] = useForm('mjgvewrz')
 
   return (
     <div className="contact-page" ref={pageRef}>
@@ -98,7 +82,8 @@ export default function Contact() {
               <div className="form-glow" />
               <img src="/images/icon3.png" alt="" className="form-icon" />
               <h2 className="form-heading">Send a message</h2>
-              {status === 'sent' ? (
+
+              {state.succeeded ? (
                 <div className="form-success">
                   <span className="success-icon">✓</span>
                   <p>Message sent! I'll get back to you soon.</p>
@@ -108,24 +93,28 @@ export default function Contact() {
                   <div className="form-row">
                     <div className="form-group">
                       <label htmlFor="name">NAME</label>
-                      <input id="name" name="name" type="text" value={form.name} onChange={handleChange} required placeholder="Your name" />
+                      <input id="name" name="name" type="text" required placeholder="Your name" />
                     </div>
                     <div className="form-group">
                       <label htmlFor="email">EMAIL</label>
-                      <input id="email" name="email" type="email" value={form.email} onChange={handleChange} required placeholder="your@email.com" />
+                      <input id="email" name="email" type="email" required placeholder="your@email.com" />
+                      <ValidationError field="email" prefix="Email" errors={state.errors} className="form-error" />
                     </div>
                   </div>
                   <div className="form-group">
                     <label htmlFor="subject">SUBJECT</label>
-                    <input id="subject" name="subject" type="text" value={form.subject} onChange={handleChange} required placeholder="Project inquiry" />
+                    <input id="subject" name="subject" type="text" required placeholder="Project inquiry" />
                   </div>
                   <div className="form-group">
                     <label htmlFor="message">MESSAGE</label>
-                    <textarea id="message" name="message" value={form.message} onChange={handleChange} required rows={6} placeholder="Tell me about your project..." />
+                    <textarea id="message" name="message" required rows={6} placeholder="Tell me about your project..." />
+                    <ValidationError field="message" prefix="Message" errors={state.errors} className="form-error" />
                   </div>
-                  {status === 'error' && <p className="form-error">Something went wrong. Try emailing me directly.</p>}
-                  <button type="submit" className="btn-primary form-submit" disabled={status === 'sending'}>
-                    {status === 'sending' ? 'SENDING...' : 'SEND MESSAGE'}
+                  {state.errors?.length > 0 && !state.errors.find(e => e.field) && (
+                    <p className="form-error">Something went wrong. Try emailing me directly.</p>
+                  )}
+                  <button type="submit" className="btn-primary form-submit" disabled={state.submitting}>
+                    {state.submitting ? 'SENDING...' : 'SEND MESSAGE'}
                   </button>
                 </form>
               )}
