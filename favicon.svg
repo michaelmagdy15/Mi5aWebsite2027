@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="100%" style="stop-color:#1a1a1a"/>
+    </linearGradient>
+    <linearGradient id="letter" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#cccccc"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background square with rounded corners -->
+  <rect width="64" height="64" rx="12" ry="12" fill="url(#bg)"/>
+
+  <!-- Subtle border -->
+  <rect width="64" height="64" rx="12" ry="12" fill="none" stroke="#333333" stroke-width="1"/>
+
+  <!-- M letterform — clean serif-style strokes -->
+  <path d="
+    M 12 48
+    L 12 16
+    L 20 16
+    L 32 36
+    L 44 16
+    L 52 16
+    L 52 48
+    L 44 48
+    L 44 28
+    L 35 44
+    L 29 44
+    L 20 28
+    L 20 48
+    Z
+  " fill="url(#letter)"/>
+</svg>
