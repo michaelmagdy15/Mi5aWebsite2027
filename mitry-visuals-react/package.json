@@ -1,0 +1,33 @@
+{
+  "name": "mitry-visuals-react",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://mi5a.com",
+  "scripts": {
+    "dev": "node scripts/catalog.js && vite",
+    "build": "node scripts/catalog.js && vite build",
+    "catalog": "node scripts/catalog.js",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist -b gh-pages"
+  },
+  "dependencies": {
+    "@formspree/react": "^3.0.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-router-dom": "^7.15.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.7.0",
+    "eslint": "^10.2.1",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "gh-pages": "^6.3.0",
+    "globals": "^17.5.0",
+    "vite": "^5.4.21"
+  }
+}

@@ -1,0 +1,90 @@
+.site-footer {
+  position: relative;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.6);
+  overflow: hidden;
+  margin-top: 40px;
+}
+.footer-glow {
+  position: absolute;
+  bottom: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 500px; height: 300px;
+  background: radial-gradient(ellipse, rgba(239,68,68,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.footer-inner { position: relative; z-index: 1; padding: 60px 0 32px; }
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  margin-bottom: 28px;
+}
+
+.footer-logo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+.logo-m  { color: #ef4444; }
+.logo-rest { color: #f4f4f4; }
+.logo-dot { color: #ef4444; }
+
+.footer-bio {
+  font-size: 0.82rem;
+  color: #444;
+  line-height: 1.6;
+}
+.footer-links { display: flex; gap: 48px; }
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-col-title {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: #333;
+  margin-bottom: 4px;
+}
+.footer-col a {
+  font-size: 0.82rem;
+  color: #555;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: #f4f4f4; }
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-copy, .footer-made {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #333;
+}
+.footer-made { color: #2a2a2a; }
+
+@media (max-width: 768px) {
+  .site-footer { margin-top: 16px; }
+  .footer-inner { padding: 40px 0 24px; }
+  .footer-top {
+    flex-direction: column;
+    gap: 28px;
+    padding-bottom: 28px;
+    margin-bottom: 20px;
+  }
+  /* Keep PAGES and SOCIAL side by side — stacking them makes a narrow ugly column */
+  .footer-links { gap: 40px; }
+  .footer-brand { width: 100%; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+}

@@ -1,0 +1,174 @@
+/* ── HEADER ── */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.header-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.header-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+/* ── LOGO ── */
+.logo {
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  display: flex;
+  align-items: baseline;
+  position: relative;
+  z-index: 1;
+}
+.logo-m { color: #ef4444; }
+.logo-rest { color: #f4f4f4; }
+.logo-dot { color: #ef4444; animation: pulse-dot 2s ease-in-out infinite; display: inline-block; }
+@keyframes pulse-dot {
+  0%,100% { opacity: 1; }
+  50%      { opacity: 0.3; }
+}
+
+/* ── DESKTOP NAV (inside header) ── */
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-link {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #555;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px; left: 12px; right: 12px;
+  height: 1px;
+  background: #ef4444;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+.nav-link:hover { color: #f4f4f4; }
+.nav-link:hover::after,
+.nav-active::after { transform: scaleX(1); }
+.nav-active { color: #f4f4f4; }
+
+.nav-cta {
+  margin-left: 12px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #f4f4f4;
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 9px 18px;
+  border-radius: 4px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.nav-cta:hover {
+  background: #ef4444;
+  border-color: #ef4444;
+}
+
+/* ── HAMBURGER ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  position: relative;
+  z-index: 201; /* always on top, above nav-mobile (z-index 195) */
+}
+.ham-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #f4f4f4;
+  border-radius: 2px;
+  /* gap=6, height=2 → centre-to-centre = 8px */
+  transition: transform 0.35s cubic-bezier(0.76,0,0.24,1), opacity 0.3s;
+}
+.ham-bar.open:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.ham-bar.open:nth-child(2) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ── MOBILE NAV OVERLAY
+   Lives OUTSIDE <header> in the DOM so it is NOT trapped by the header's
+   backdrop-filter containing block. position:fixed here is relative to
+   the true viewport, not the 70px header box.
+── */
+.nav-mobile {
+  position: fixed;
+  inset: 0; /* top:0 left:0 right:0 bottom:0 */
+  z-index: 195;
+  display: none; /* flex on mobile */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+  overflow: hidden;
+}
+.nav-mobile-open {
+  transform: translateX(0);
+}
+.nav-mobile-link {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #444;
+  padding: 16px 40px;
+  width: 100%;
+  text-align: center;
+  transition: color 0.2s;
+}
+.nav-mobile-link:hover,
+.nav-mobile-link.nav-active { color: #f4f4f4; }
+
+.nav-mobile-cta {
+  margin-top: 24px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #ef4444;
+  border: 1px solid rgba(239,68,68,0.3);
+  padding: 14px 40px;
+  border-radius: 4px;
+  transition: background 0.2s, border-color 0.2s;
+  text-align: center;
+}
+.nav-mobile-cta:hover {
+  background: rgba(239,68,68,0.1);
+  border-color: rgba(239,68,68,0.6);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-desktop { display: none; }
+  .hamburger   { display: flex; }
+  .nav-mobile  { display: flex; }
+}

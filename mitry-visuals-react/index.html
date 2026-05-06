@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Michael Mitry — Visual Artist & Filmmaker</title>
+    <meta name="description" content="Michael Magdy Mitry — Filmmaker, Visual Effects Artist & Full-Stack Engineer based in Cairo, Egypt. 9+ years, 67+ projects, 27+ clients worldwide." />
+
+    <!-- GitHub Pages SPA redirect handler -->
+    <script>
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+        // Also handle the ?p= query trick from 404.html
+        var l = window.location;
+        if (l.search[1] === 'p') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null, null,
+            l.pathname.slice(0, -1) + decoded[0].slice(2) +
+            (decoded[1] ? '?' + decoded[1] : '') + l.hash
+          );
+        }
+      }());
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
