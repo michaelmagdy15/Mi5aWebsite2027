@@ -196,8 +196,19 @@ a.info-blk-val:hover { color: #f4f4f4; }
 @media (max-width: 900px) {
   .contact-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
+  .contact-title { font-size: clamp(2.4rem, 9vw, 4rem); }
 }
 
 @media (max-width: 600px) {
   .contact-form-wrap { padding: 28px 20px; }
+  .social-links { flex-wrap: wrap; }
+  .social-btn { flex: 1 1 calc(50% - 6px); justify-content: center; }
 }
+
+@media (max-width: 400px) {
+  .contact-form-wrap { padding: 20px 14px; }
+  .social-btn { flex: 1 1 100%; }
+  .info-block { gap: 12px; }
+  .info-icon { width: 34px; height: 34px; }
+}
+

@@ -45,7 +45,7 @@ export default function About() {
                 </div>
                 <div className="info-item">
                   <span className="info-label">EXPERIENCE</span>
-                  <span className="info-val">3+ Years</span>
+                  <span className="info-val">9+ Years</span>
                 </div>
               </div>
               <div className="about-actions reveal invisible">
