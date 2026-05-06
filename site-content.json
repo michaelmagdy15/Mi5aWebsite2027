@@ -5,23 +5,24 @@
     "name": "Michael Magdy Mitry",
     "shortName": "Michael Mitry",
     "title": "Visual Artist, Architect, Filmmaker & Full-Stack Engineer",
-    "tagline": "ARCHITECT · FILMMAKER · VISUAL ARTIST · NEW CAIRO, EGYPT",
+    "tagline": "ARCHITECT · FILMMAKER · DEVELOPER · PILOT · NEW CAIRO, EGYPT",
     "location": "New Cairo, Egypt",
     "available": true,
     "availabilityText": "Available for Freelance",
-    "bio": "Multidisciplinary creator with a unique background in Architecture, Commercial Aviation, and Filmmaking. I build high-end visual effects, cinematic campaigns, and data-driven software — and leverage AI to finish client projects faster than ever without compromising quality.",
-    "bioLong": "I'm Michael Magdy Mitry — a Filmmaker, Visual Effects Artist, and Full-Stack Engineer based in New Cairo, Egypt. My background spans Architecture, Commercial Aviation, and Filmmaking, giving me an uncommon ability to approach complex problems from multiple angles. I specialize in high-end VFX and cinematic content for international campaigns, and I build highly interactive, data-driven web applications using the React ecosystem and Google Cloud. Every project is a chance to push the boundaries of what's visually and technically possible.",
+    "bio": "Architect. Filmmaker. Developer. Pilot. I build high-end VFX, cinematic campaigns, and data-driven software — leveraging AI to deliver client projects faster than ever without compromising quality.",
+    "bioLong": "I'm Michael Magdy Mitry — 26 years old, based in New Cairo, Egypt. My story is an unusual one. I grew up knowing I wanted to fly, but life redirected me first through Architecture (Arab Academy, graduated Feb 2024), then through self-teaching filmmaking, VFX, web development, and cybersecurity — before I finally made it to flight school in Cyprus in 2025. Eleven months. Seventy flight hours. 750 hours of ATPL ground school at Dento Aviation. I am a licensed pilot who is also a software engineer, a visual effects artist, and an architect. That combination — the ability to think spatially, technically, and creatively all at once — is what makes my work different. I built ATPLVector, an ATPL e-learning platform, out of my own experience as a student pilot. I built the Strike Boxing CRM from scratch for a real client. I run a YouTube channel, FSMADDNESSPILOT, that taught thousands of flight sim enthusiasts around the world. I leverage AI to finish client projects faster than ever — without sacrificing quality.",
     "heroImage": "/images/pp.png",
     "aboutImage": "/images/IMG_0970.jpg",
     "email": "michaelmitry13@gmail.com",
     "phone": "+201000680580",
     "linkedin": "https://linkedin.com/in/michaelmagdymitry",
-    "instagram": "https://instagram.com/mitry.visuals"
+    "instagram": "https://instagram.com/mitry.visuals",
+    "youtube": "https://youtube.com/@FSMADDNESSPILOT"
   },
 
   "stats": [
     { "number": 9,  "suffix": "+", "label": "YRS EXP"           },
-    { "number": 67, "suffix": "+", "label": "PROJECTS"           },
+    { "number": 70, "suffix": "+", "label": "FLIGHT HOURS"      },
     { "number": 27, "suffix": "+", "label": "CLIENTS WORLDWIDE"  }
   ],
 
@@ -38,7 +39,7 @@
       "num": "02",
       "icon": "web",
       "title": "Web & App Development",
-      "description": "Full-stack web applications with React 19, TypeScript, Firebase, and Google Cloud Run. From CRM systems to interactive platforms.",
+      "description": "Full-stack web applications with React 19, TypeScript, Firebase, and Google Cloud Run. From CRM systems to interactive e-learning platforms.",
       "tools": "REACT · TYPESCRIPT · FIREBASE · DOCKER",
       "large": false
     },
@@ -64,6 +65,10 @@
     {
       "category": "Development",
       "items": ["React 19", "TypeScript", "Tailwind CSS v4", "Node.js", "Firebase", "Google Cloud Run", "Docker", "Vite", "HTML5 / CSS3"]
+    },
+    {
+      "category": "Aviation",
+      "items": ["ATPL Theory", "IFR Procedures", "PANS-OPS", "EASA Regulations", "Mass & Balance", "Meteorology", "Flight Planning", "70+ Flight Hours"]
     }
   ],
 
@@ -72,7 +77,7 @@
       "year": "2024 – Present",
       "role": "Filmmaker & Visual Effects Artist",
       "company": "Society of PLAY",
-      "description": "Creates high-end visual effects and cinematic content for international campaigns. Leads video production workflows, mentors junior editors, and integrates AI-driven tools into post-production pipelines to optimize rendering times."
+      "description": "Creates high-end visual effects and cinematic content for international campaigns. Leads video production workflows, mentors junior editors, and integrates AI-driven tools into post-production pipelines to accelerate delivery without compromising quality."
     },
     {
       "year": "2024 – Present",
@@ -82,15 +87,27 @@
     },
     {
       "year": "2024",
-      "role": "Frontend Developer",
-      "company": "ATPL Vector (atplvector.com)",
-      "description": "Developed a comprehensive interactive e-learning platform for Airline Transport Pilot Licence (ATPL) students. Built an SVG aircraft inspector, PANS-OPS holding calculators, and translated EASA regulations into dynamic architectural trees and searchable glossaries."
+      "role": "Founder & Frontend Developer",
+      "company": "ATPLVector (atplvector.com)",
+      "description": "Built from personal experience as a student pilot — an interactive ATPL e-learning platform with correct EASA subject taxonomy, a Pilot Dashboard, SVG aircraft inspector, PANS-OPS holding calculators, and gamification built in the language of aviation. The tool you wish you'd had when you were the student."
+    },
+    {
+      "year": "2025",
+      "role": "Student Pilot",
+      "company": "Dento Aviation — Cyprus",
+      "description": "Eleven months of full-time ATPL training. 750 hours of ground school across all 14 subjects (meteorology, navigation, air law, human performance, mass & balance, flight planning, principles of flight). 70 logged flight hours in the left seat. EASA-regulated IFR and VFR operations. The longest-held dream, finally realised."
     },
     {
       "year": "2023",
       "role": "Architectural Trainee",
       "company": "ProfilerZ Consultant & Hill International",
       "description": "Constructed complex architectural models and technical drawings for large-scale urban projects. Coordinated with multi-disciplinary teams to ensure design feasibility and regulatory compliance."
+    },
+    {
+      "year": "2020 – 2022",
+      "role": "Student Media Head",
+      "company": "Arab Academy For Science And Technology",
+      "description": "Trusted by the university to produce all cinematic media — events, campaigns, documentation. Delivered at a quality that made professors and administrators look at each other and quietly raise their eyebrows. Chosen to deliver the graduation speech at the end of five years."
     }
   ],
 
@@ -99,13 +116,19 @@
       "degree": "Bachelor of Architecture and Environmental Design",
       "school": "Arab Academy For Science And Technology",
       "period": "Completed 02/2024",
-      "note": "Graduation Project: 'ReviveTech' — AI-integrated urban redevelopment plan. Grade: A-. Student Activities Media Head (2020–2022)."
+      "note": "Graduation Project: 'ReviveTech' — AI-integrated urban redevelopment plan. Grade: A-. Student Activities Media Head (2020–2022). Chosen to deliver the graduation speech."
     },
     {
-      "degree": "Commercial Pilot License (CPL)",
-      "school": "Licensed Commercial Pilot",
-      "period": "EASA Certified",
-      "note": "Deep practical and theoretical knowledge of EASA regulations, IFR procedures, and PANS-OPS."
+      "degree": "ATPL Theoretical & Flight Training",
+      "school": "Dento Aviation — Cyprus",
+      "period": "2025",
+      "note": "750 hours of ATPL ground school. 70 logged flight hours. EASA-regulated IFR/VFR training. CPL in progress. The career that was always the answer."
+    },
+    {
+      "degree": "Self-Taught: Cybersecurity, Web Development & VFX",
+      "school": "Independent — Online",
+      "period": "2016 – Present",
+      "note": "Systems-level thinking applied to network security, hardware optimisation, full-stack development, and post-production. YouTube channel FSMADDNESSPILOT reached a global audience of flight sim enthusiasts. Architecture, filmmaking, and code — learned completely, obsessively, until understanding the bones underneath."
     }
   ],
 
