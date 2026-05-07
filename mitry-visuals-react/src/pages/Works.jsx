@@ -1,9 +1,10 @@
 import { useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import { useProjects } from '../hooks/useContent'
 import './Works.css'
 
-const CATEGORIES = ['ALL', 'VISUAL EFFECTS', 'WEB DESIGN', 'PHOTO EDITING', 'MOTION DESIGN', 'PHOTOGRAPHY', 'VISUAL EFFECTS + AI']
+const CATEGORIES = ['ALL', 'WEB DEVELOPMENT', 'WEB DESIGN', 'VISUAL EFFECTS', 'VISUAL EFFECTS + AI', 'PHOTO EDITING', 'MOTION DESIGN', 'PHOTOGRAPHY']
 
 export default function Works() {
   const pageRef = useRef(null)
@@ -69,11 +70,9 @@ export default function Works() {
           {!loading && !error && (
             <div className="works-grid">
               {filtered.map((p, i) => (
-                <a
+                <Link
                   key={p.id}
-                  href={p.link}
-                  target={p.link !== '#' ? '_blank' : undefined}
-                  rel="noreferrer"
+                  to={`/works/${p.id}`}
                   className={`work-card reveal invisible${p.featured ? ' work-featured' : ''}`}
                   style={{ '--i': i }}
                 >
@@ -92,7 +91,7 @@ export default function Works() {
                     </div>
                     {p.description && <p className="work-desc">{p.description}</p>}
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           )}
