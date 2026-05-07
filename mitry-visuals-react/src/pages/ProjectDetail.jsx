@@ -19,31 +19,27 @@ export default function ProjectDetail() {
   const prevProject = currentIndex > 0 ? sorted[currentIndex - 1] : null
   const nextProject = currentIndex < sorted.length - 1 ? sorted[currentIndex + 1] : null
 
-  if (loading) {
-    return (
-      <div className="pd-loading">
-        <div className="loading-spinner" />
-        <span>Loading project...</span>
-      </div>
-    )
-  }
-
-  if (error || !project) {
-    return (
-      <div className="pd-not-found">
-        <div className="pd-nf-inner">
-          <span className="pd-nf-code">404</span>
-          <h2>Project not found</h2>
-          <Link to="/works" className="btn btn-primary">← Back to Works</Link>
-        </div>
-      </div>
-    )
-  }
-
   return (
     <div className="pd-page" ref={pageRef}>
+      {loading && (
+        <div className="pd-loading">
+          <div className="loading-spinner" />
+          <span>Loading project...</span>
+        </div>
+      )}
 
-      {/* ── HERO ── */}
+      {!loading && (error || !project) && (
+        <div className="pd-not-found">
+          <div className="pd-nf-inner">
+            <span className="pd-nf-code">404</span>
+            <h2>Project not found</h2>
+            <Link to="/works" className="btn btn-primary">← Back to Works</Link>
+          </div>
+        </div>
+      )}
+
+      {!loading && !error && project && (
+        <>      {/* ── HERO ── */}
       <section className="pd-hero section">
         <div className="pd-hero-glow" />
         <div className="container">
@@ -195,6 +191,8 @@ export default function ProjectDetail() {
           </div>
         </div>
       </section>
+      </>
+      )}
 
     </div>
   )
