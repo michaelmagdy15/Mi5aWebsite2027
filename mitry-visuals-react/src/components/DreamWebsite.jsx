@@ -2,6 +2,12 @@ import { useState, useEffect, useRef } from 'react'
 import { useForm, ValidationError } from '@formspree/react'
 import './DreamWebsite.css'
 
+// ─────────────────────────────────────────────────────────────
+// 👇 PASTE YOUR YOUTUBE VIDEO ID HERE once you've uploaded it
+//    e.g. for https://youtu.be/dQw4w9WgXcQ  →  'dQw4w9WgXcQ'
+// ─────────────────────────────────────────────────────────────
+const YOUTUBE_VIDEO_ID = '' // ← add your ID here
+
 /* ── Floating particle ── */
 function Particle({ style }) {
   return <span className="dw-particle" style={style} />
@@ -138,27 +144,27 @@ export default function DreamWebsite() {
               <div className="dw-phone-frame">
                 <div className="dw-phone-notch" />
                 <div className="dw-video-slot">
-                  {/* 
-                    ── HOW TO ADD YOUR VIDEO ──
-                    1. Save your portrait video as `public/videos/dream-site-hype.mp4`
-                    2. Uncomment the <video> tag below and remove the placeholder div
-                  */}
-                  {/* <video
-                    className="dw-hype-video"
-                    src="/videos/dream-site-hype.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  /> */}
-                  <div className="dw-video-placeholder">
-                    <div className="dw-play-ring">
-                      <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
+                  {YOUTUBE_VIDEO_ID ? (
+                    // ── YouTube embed (no controls, no branding, autoplay loop) ──
+                    <iframe
+                      className="dw-hype-video"
+                      src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&loop=1&controls=0&rel=0&modestbranding=1&playsinline=1&showinfo=0&playlist=${YOUTUBE_VIDEO_ID}`}
+                      title="Dream Website Hype"
+                      frameBorder="0"
+                      allow="autoplay; encrypted-media"
+                      allowFullScreen={false}
+                    />
+                  ) : (
+                    // ── Placeholder shown until YOUTUBE_VIDEO_ID is set ──
+                    <div className="dw-video-placeholder">
+                      <div className="dw-play-ring">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                      <span className="dw-video-label">Video coming soon</span>
                     </div>
-                    <span className="dw-video-label">Video coming soon</span>
-                  </div>
+                  )}
                 </div>
                 <div className="dw-phone-bar" />
               </div>
