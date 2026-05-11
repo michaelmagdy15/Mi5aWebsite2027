@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import { useSiteContent, useProjects } from '../hooks/useContent'
+import DreamWebsite from '../components/DreamWebsite'
 import './Home.css'
 
 const MARQUEE_ITEMS = [
@@ -239,6 +240,9 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      {/* ── DREAM WEBSITE 72H ── */}
+      <DreamWebsite />
 
       {/* ── CTA ── */}
       <section className="cta-section section">
