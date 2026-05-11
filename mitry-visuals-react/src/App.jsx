@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Works from './pages/Works'
 import Contact from './pages/Contact'
+import Services from './pages/Services'
 import './index.css'
 
 function AppRoutes() {
@@ -16,6 +17,7 @@ function AppRoutes() {
         <Route path="/about" element={<About />} />
         <Route path="/works" element={<Works />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/services" element={<Services />} />
       </Routes>
     </Layout>
   )

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import './Header.css'
 
-const NAV_LINKS = [['/', 'HOME'], ['/works', 'WORKS'], ['/about', 'ABOUT'], ['/contact', 'CONTACT']]
+const NAV_LINKS = [['/', 'HOME'], ['/works', 'WORKS'], ['/services', 'SERVICES'], ['/about', 'ABOUT'], ['/contact', 'CONTACT']]
 
 export default function Header() {
   const [open, setOpen] = useState(false)
