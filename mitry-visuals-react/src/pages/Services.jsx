@@ -122,6 +122,30 @@ const SERVICES = [
     stack: ['Blender', 'SketchUp', 'Rhino', 'Photoshop'],
     cta: 'Visualize My Project',
   },
+  {
+    id: 'social-rebrand',
+    emoji: '📲',
+    badge: 'FULL PACKAGE',
+    badgeColor: 'teal',
+    num: '06',
+    title: 'Social Media Rebranding',
+    tagline: 'Zero followers to a brand people actually follow.',
+    description:
+      'A done-for-you social media transformation — from strategy and visual identity to content templates and growth playbook. Built for businesses and creators who have no idea where to start.',
+    features: [
+      'Full page audit & competitor analysis',
+      'New visual identity (logo, colors, fonts)',
+      'Bio, highlights & profile optimization',
+      'Custom content template pack (15+ designs)',
+      'Content strategy & posting schedule',
+      'Caption & hashtag guide for organic growth',
+      '30-day growth roadmap delivered',
+    ],
+    price: 'From $350',
+    priceNote: 'Instagram, TikTok, LinkedIn, Facebook pages',
+    stack: ['Photoshop', 'Figma', 'Premiere', 'Canva Pro'],
+    cta: 'Rebrand My Page',
+  },
 ]
 
 /* ─────────────────────────────────────────
