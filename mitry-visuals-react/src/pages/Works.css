@@ -211,6 +211,53 @@
   letter-spacing: 0.2em;
 }
 
+/* ── INCOMING BANNER ── */
+.works-incoming {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 60px;
+  padding: 24px 32px;
+  border: 1px solid rgba(239,68,68,0.12);
+  border-radius: 4px;
+  background: rgba(239,68,68,0.04);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #555;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+.works-incoming::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(239,68,68,0.06), transparent);
+  animation: incoming-shimmer 3s ease-in-out infinite;
+}
+@keyframes incoming-shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.works-incoming-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ef4444;
+  opacity: 0.6;
+  animation: dot-pulse 1.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.works-incoming-dot:last-child {
+  animation-delay: 0.7s;
+}
+@keyframes dot-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50%       { opacity: 1;   transform: scale(1.2); }
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .works-grid { grid-template-columns: repeat(2, 1fr); }

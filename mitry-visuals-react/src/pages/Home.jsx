@@ -54,6 +54,56 @@ function Counter({ target, suffix = '' }) {
 
 const spanClasses = ['bento-large', 'bento-tall', 'bento-normal', 'bento-normal']
 
+function ShowreelPlayer() {
+  const [playing, setPlaying] = useState(false)
+  const videoRef = useRef(null)
+
+  const handlePlay = () => {
+    if (!playing) {
+      videoRef.current?.play()
+      setPlaying(true)
+    } else {
+      videoRef.current?.pause()
+      setPlaying(false)
+    }
+  }
+
+  return (
+    <div className={`showreel-wrap reveal invisible${playing ? ' showreel-active' : ''}`} onClick={handlePlay}>
+      <div className="showreel-frame">
+        <div className="showreel-corner tl" /><div className="showreel-corner tr" />
+        <div className="showreel-corner bl" /><div className="showreel-corner br" />
+        <video
+          ref={videoRef}
+          src="/website promo.mp4"
+          className="showreel-video"
+          loop
+          playsInline
+          preload="metadata"
+        />
+        <div className={`showreel-overlay${playing ? ' showreel-overlay-hidden' : ''}`}>
+          <div className="showreel-glow" />
+          <div className="showreel-play-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5,3 19,12 5,21" />
+            </svg>
+          </div>
+          <div className="showreel-label">PLAY SHOWREEL</div>
+        </div>
+        {playing && (
+          <div className="showreel-pause-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+            </svg>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+
+
 export default function Home() {
   const pageRef = useRef(null)
   const { data: site, loading: siteLoading } = useSiteContent()
@@ -155,6 +205,17 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      {/* ── SHOWREEL ── */}
+      <section className="showreel-section section">
+        <div className="container">
+          <div className="sec-header">
+            <div className="section-label reveal invisible">SHOWREEL</div>
+            <div className="sec-line reveal invisible" />
+          </div>
+          <ShowreelPlayer />
+        </div>
+      </section>
 
       {/* ── SERVICES ── */}
       {services.length > 0 && (

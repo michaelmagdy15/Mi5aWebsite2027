@@ -95,8 +95,15 @@ export default function Works() {
               ))}
             </div>
           )}
+          {!loading && !error && filtered.length > 0 && (
+            <div className="works-incoming">
+              <div className="works-incoming-dot" />
+              <span>More projects being added this week — stay tuned.</span>
+              <div className="works-incoming-dot" />
+            </div>
+          )}
           {!loading && !error && filtered.length === 0 && (
-            <div className="works-empty">No projects in this category yet.</div>
+            <div className="works-empty">More coming this week — check back soon.</div>
           )}
         </div>
       </section>
