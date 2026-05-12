@@ -1,7 +1,89 @@
 {
-  "generated": "2026-05-11T14:40:21.395Z",
-  "count": 8,
+  "generated": "2026-05-12T18:50:55.399Z",
+  "count": 12,
   "projects": [
+    {
+      "id": "dar-al-khalij",
+      "title": "DAR AL KHALIJ",
+      "category": "WEB DESIGN",
+      "description": "Full-stack website for DEC Engineering Consultant — a premium architectural & engineering firm based in the Gulf.",
+      "longDescription": "Designed and developed the official web presence for DEC Engineering Consultant (Dar Al Khalij), a high-end structural and architectural consulting firm. The site was built to reflect the firm's identity as a visionary force in the Gulf construction industry — cinematic hero animations, floating 3D geometry, and a dark editorial aesthetic communicate scale and prestige. The project involved close collaboration with the client to define brand language, content strategy, and responsive layout across all devices.",
+      "link": "https://daralkhalij.net/",
+      "featured": true,
+      "order": 1,
+      "image": "/images/proj-daralkhalij.png",
+      "year": "2024",
+      "role": "Full-Stack Developer & Designer",
+      "tech": [
+        "Next.js",
+        "Framer Motion",
+        "GSAP",
+        "Tailwind CSS",
+        "Vercel"
+      ]
+    },
+    {
+      "id": "strike-boxing-crm",
+      "title": "STRIKE BOXING CRM",
+      "category": "WEB DEVELOPMENT",
+      "description": "Custom CRM system for a professional boxing gym — managing members, coaches, attendance, payments, and analytics.",
+      "longDescription": "Built a fully bespoke CRM platform for Strike Boxing Egypt, a professional boxing and fitness gym. The system handles the complete lifecycle of gym operations: member onboarding, coach management, session attendance tracking, payment processing, and performance analytics. Features include role-based access control (Staff, Coach, Member), real-time dashboards, audit logs, and a clean mobile-optimized interface. Deployed on Google Cloud Run using Docker, with Firestore as the backend database and Firebase Auth for authentication.",
+      "link": "https://dashboard.strikeboxing-eg.pro/",
+      "featured": true,
+      "order": 2,
+      "image": "/images/proj-strikeboxing.png",
+      "year": "2024–2025",
+      "role": "Full-Stack Developer",
+      "tech": [
+        "React",
+        "TypeScript",
+        "Firebase",
+        "Firestore",
+        "Google Cloud Run",
+        "Docker"
+      ]
+    },
+    {
+      "id": "alpha-calisthenics",
+      "title": "ALPHA CALISTHENICS",
+      "category": "WEB DESIGN",
+      "description": "Performance website for Alpha Calisthenics — an elite bodyweight training brand built around Coach Akram.",
+      "longDescription": "Developed the complete web platform for Alpha Calisthenics, a premium coaching brand led by Coach Akram specializing in elite bodyweight training. The site was designed to convert visitors into clients through high-impact visual storytelling, transformation galleries, and structured program tiers. Features include animated hero sections, Google Auth integration for sign-in, a dedicated coaching philosophy section, and dynamic pricing tiers. The dark, high-contrast aesthetic reinforces the discipline-focused brand identity.",
+      "link": "https://alpha-calisthenics.com/",
+      "featured": true,
+      "order": 3,
+      "image": "/images/proj-alphacalisthenics.png",
+      "year": "2024",
+      "role": "Full-Stack Developer & Designer",
+      "tech": [
+        "React",
+        "Firebase Auth",
+        "Framer Motion",
+        "CSS Animations",
+        "Vercel"
+      ]
+    },
+    {
+      "id": "atplvector",
+      "title": "ATPLVECTOR",
+      "category": "WEB DEVELOPMENT",
+      "description": "AI-powered ATPL theory learning platform — interactive simulators, visual systems logic, and immersive aviation education.",
+      "longDescription": "Founded and built ATPLVector, an aviation education SaaS platform designed to help pilots master ATPL theory visually and interactively. Drawing from personal experience as a student pilot with 70 flight hours and 750 ground school hours at Dento Aviation, I identified the fundamental shortcoming of static PDFs and lecture slides. ATPLVector delivers 14 subjects with 65+ interactive simulators, AI-driven roleplay scenarios, and immersive systems logic modules — all engineered for EASA 2026 standards. The platform is invite-only beta with a growing waitlist.",
+      "link": "https://atplvector.com/",
+      "featured": true,
+      "order": 4,
+      "image": "/images/proj-atplvector.png",
+      "year": "2025",
+      "role": "Founder & Full-Stack Developer",
+      "tech": [
+        "Next.js",
+        "TypeScript",
+        "Supabase",
+        "OpenAI API",
+        "Framer Motion",
+        "Vercel"
+      ]
+    },
     {
       "id": "ehe-design-studio",
       "title": "EHE DESIGN STUDIO",
@@ -9,8 +91,16 @@
       "description": "Full website design and development for EHE Design Studio — layout, visual identity, and UI.",
       "link": "https://ehedesignstudio.com/",
       "featured": true,
-      "order": 1,
-      "image": "/images/EHE-1024x509.jpg"
+      "order": 5,
+      "image": "/images/EHE-1024x509.jpg",
+      "year": "2023",
+      "role": "Web Designer & Developer",
+      "tech": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "WordPress"
+      ]
     },
     {
       "id": "refuel-eg-idea",
@@ -19,8 +109,15 @@
       "description": "Cinematic VFX reel created for the Refuel.EG campaign featuring AI-enhanced motion compositing.",
       "link": "https://www.instagram.com/reel/C_kyJWZCxi_/",
       "featured": true,
-      "order": 2,
-      "image": "/images/Screenshot_10.jpg"
+      "order": 6,
+      "image": "/images/Screenshot_10.jpg",
+      "year": "2024",
+      "role": "VFX Artist",
+      "tech": [
+        "After Effects",
+        "AI Compositing",
+        "Motion Graphics"
+      ]
     },
     {
       "id": "guitar-on-fire",
@@ -29,8 +126,15 @@
       "description": "AI-powered fire compositing on a guitar performance — pushing the limits of creative VFX.",
       "link": "https://www.instagram.com/reel/C_0hMXpinbO/",
       "featured": true,
-      "order": 3,
-      "image": "/images/Screenshot_12-852x1024.jpg"
+      "order": 7,
+      "image": "/images/Screenshot_12-852x1024.jpg",
+      "year": "2024",
+      "role": "VFX Artist",
+      "tech": [
+        "After Effects",
+        "AI Image Generation",
+        "Compositing"
+      ]
     },
     {
       "id": "ehe-design-studio-v2",
@@ -39,8 +143,15 @@
       "description": "Redesign iteration for EHE Design Studio with improved layout and visual refinements.",
       "link": "#",
       "featured": false,
-      "order": 4,
-      "image": "/images/Screenshot_9-1024x601.jpg"
+      "order": 8,
+      "image": "/images/Screenshot_9-1024x601.jpg",
+      "year": "2023",
+      "role": "Web Designer",
+      "tech": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ]
     },
     {
       "id": "visual-reel",
@@ -49,8 +160,15 @@
       "description": "A showcase reel of motion graphics and visual effects work across multiple projects.",
       "link": "#",
       "featured": true,
-      "order": 5,
-      "image": "/images/Screenshot_8.jpg"
+      "order": 9,
+      "image": "/images/Screenshot_8.jpg",
+      "year": "2024",
+      "role": "Motion Designer",
+      "tech": [
+        "After Effects",
+        "Premiere Pro",
+        "Motion Graphics"
+      ]
     },
     {
       "id": "portrait-session",
@@ -59,8 +177,14 @@
       "description": "High-end portrait photography with creative lighting and post-processing.",
       "link": "#",
       "featured": false,
-      "order": 6,
-      "image": "/images/Screenshot_11.jpg"
+      "order": 10,
+      "image": "/images/Screenshot_11.jpg",
+      "year": "2023",
+      "role": "Photographer",
+      "tech": [
+        "Lightroom",
+        "Photoshop"
+      ]
     },
     {
       "id": "creative-edit",
@@ -69,8 +193,14 @@
       "description": "Creative photo manipulation and compositing for social media content.",
       "link": "#",
       "featured": false,
-      "order": 7,
-      "image": "/images/Screenshot_14.jpg"
+      "order": 11,
+      "image": "/images/Screenshot_14.jpg",
+      "year": "2023",
+      "role": "Photo Editor",
+      "tech": [
+        "Photoshop",
+        "Lightroom"
+      ]
     },
     {
       "id": "motion-reel",
@@ -79,8 +209,14 @@
       "description": "Dynamic motion design reel featuring kinetic typography and animated brand elements.",
       "link": "#",
       "featured": false,
-      "order": 8,
-      "image": "/images/Screenshot_13-1024x576.jpg"
+      "order": 12,
+      "image": "/images/Screenshot_13-1024x576.jpg",
+      "year": "2023",
+      "role": "Motion Designer",
+      "tech": [
+        "After Effects",
+        "Premiere Pro"
+      ]
     }
   ]
 }
