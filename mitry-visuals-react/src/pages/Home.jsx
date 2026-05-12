@@ -11,6 +11,13 @@ const MARQUEE_ITEMS = [
   'PHOTO EDITING', '✦', 'CREATIVE DIRECTION', '✦', 'COLOR GRADING', '✦',
 ]
 
+const PROOF_ITEMS = [
+  'DAR AL KHALIJ', '✦', 'STRIKE BOXING', '✦', 'ALPHA CALISTHENICS', '✦',
+  'EHE DESIGN STUDIO', '✦', 'REFUEL.EG', '✦', 'ATPL VECTOR', '✦',
+  'DAR AL KHALIJ', '✦', 'STRIKE BOXING', '✦', 'ALPHA CALISTHENICS', '✦',
+  'EHE DESIGN STUDIO', '✦', 'REFUEL.EG', '✦', 'ATPL VECTOR', '✦',
+]
+
 const SERVICE_ICONS = {
   video: (
     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
@@ -29,6 +36,7 @@ const SERVICE_ICONS = {
   ),
 }
 
+/* Animated counting number */
 function Counter({ target, suffix = '' }) {
   const [val, setVal] = useState(0)
   const ref = useRef(null)
@@ -37,8 +45,7 @@ function Counter({ target, suffix = '' }) {
       if (!e.isIntersecting) return
       obs.disconnect()
       let start = 0
-      const duration = 1200
-      const step = target / (duration / 16)
+      const step = target / (1200 / 16)
       const tick = () => {
         start = Math.min(start + step, target)
         setVal(Math.floor(start))
@@ -52,20 +59,91 @@ function Counter({ target, suffix = '' }) {
   return <span ref={ref}>{val}{suffix}</span>
 }
 
-const spanClasses = ['bento-large', 'bento-tall', 'bento-normal', 'bento-normal']
+/* Animated bar under each stat */
+function SparkBar() {
+  const ref = useRef(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.style.width = '100%'; obs.disconnect() }
+    }, { threshold: 0.5 })
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+  return (
+    <div className="hstat-bar-track">
+      <div className="hstat-bar" ref={ref} />
+    </div>
+  )
+}
 
+/* Drag-scrollable horizontal project strip */
+function HorizontalStrip({ projects }) {
+  const stripRef = useRef(null)
+  const drag = useRef({ on: false, startX: 0, scroll: 0 })
+
+  const onDown = e => {
+    drag.current = { on: true, startX: e.pageX - stripRef.current.offsetLeft, scroll: stripRef.current.scrollLeft }
+    stripRef.current.style.cursor = 'grabbing'
+  }
+  const onUp = () => { drag.current.on = false; stripRef.current.style.cursor = 'grab' }
+  const onLeave = () => { drag.current.on = false; if (stripRef.current) stripRef.current.style.cursor = 'grab' }
+  const onMove = e => {
+    if (!drag.current.on) return
+    e.preventDefault()
+    const x = e.pageX - stripRef.current.offsetLeft
+    stripRef.current.scrollLeft = drag.current.scroll - (x - drag.current.startX) * 1.5
+  }
+
+  if (!projects.length) return null
+  return (
+    <section className="hstrip-section">
+      <div className="container">
+        <div className="sec-header">
+          <div className="section-label reveal invisible">ALL PROJECTS</div>
+          <span className="hstrip-drag-hint">← DRAG TO EXPLORE →</span>
+        </div>
+      </div>
+      <div
+        className="hstrip"
+        ref={stripRef}
+        onMouseDown={onDown}
+        onMouseUp={onUp}
+        onMouseLeave={onLeave}
+        onMouseMove={onMove}
+      >
+        {projects.map((p, i) => (
+          <Link
+            key={p.id}
+            to={`/works/${p.id}`}
+            className="hstrip-card"
+            style={{ '--i': i }}
+            draggable={false}
+          >
+            <div className="hstrip-img">
+              <img src={p.image} alt={p.title} draggable={false} />
+              <div className="hstrip-shim" />
+            </div>
+            <div className="hstrip-info">
+              <span className="hstrip-cat">{p.category}</span>
+              <h3 className="hstrip-title">{p.title}</h3>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+/* Click-to-play showreel */
 function ShowreelPlayer() {
   const [playing, setPlaying] = useState(false)
   const videoRef = useRef(null)
 
   const handlePlay = () => {
-    if (!playing) {
-      videoRef.current?.play()
-      setPlaying(true)
-    } else {
-      videoRef.current?.pause()
-      setPlaying(false)
-    }
+    if (!playing) { videoRef.current?.play(); setPlaying(true) }
+    else          { videoRef.current?.pause(); setPlaying(false) }
   }
 
   return (
@@ -77,9 +155,7 @@ function ShowreelPlayer() {
           ref={videoRef}
           src="/website promo.mp4"
           className="showreel-video"
-          loop
-          playsInline
-          preload="metadata"
+          loop playsInline preload="metadata"
         />
         <div className={`showreel-overlay${playing ? ' showreel-overlay-hidden' : ''}`}>
           <div className="showreel-glow" />
@@ -102,37 +178,23 @@ function ShowreelPlayer() {
   )
 }
 
-
+const spanClasses = ['bento-large', 'bento-tall', 'bento-normal', 'bento-normal']
 
 export default function Home() {
   const pageRef = useRef(null)
   const { data: site, loading: siteLoading } = useSiteContent()
-  const { featured, loading: projLoading } = useProjects()
+  const { projects, featured, loading: projLoading } = useProjects()
 
   useReveal(pageRef)
 
-  // Cursor glow
-  const cursorRef = useRef(null)
-  useEffect(() => {
-    const move = e => {
-      if (cursorRef.current) {
-        cursorRef.current.style.left = e.clientX + 'px'
-        cursorRef.current.style.top  = e.clientY + 'px'
-      }
-    }
-    window.addEventListener('mousemove', move)
-    return () => window.removeEventListener('mousemove', move)
-  }, [])
-
-  // Always render the outer shell so pageRef is always attached to a DOM node
   const profile  = site?.profile   || {}
   const stats    = site?.stats     || []
   const services = site?.services  || []
   const displayFeatured = projLoading ? [] : featured.slice(0, 4)
+  const allProjects     = projLoading ? [] : (projects || [])
 
   return (
     <div className="home-page" ref={pageRef}>
-      <div className="cursor-glow" ref={cursorRef} />
 
       {/* ── HERO ── */}
       <section className="hero">
@@ -169,6 +231,7 @@ export default function Home() {
                         <Counter target={s.number} suffix={s.suffix} />
                       </span>
                       <span className="hstat-l">{s.label}</span>
+                      <SparkBar />
                     </div>
                   </div>
                 ))}
@@ -205,6 +268,9 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      {/* ── HORIZONTAL DRAG STRIP ── */}
+      <HorizontalStrip projects={allProjects} />
 
       {/* ── SHOWREEL ── */}
       <section className="showreel-section section">
@@ -300,6 +366,18 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      {/* ── SOCIAL PROOF TICKER ── */}
+      <div className="proof-strip">
+        <div className="proof-label">TRUSTED BY</div>
+        <div className="proof-track-wrap">
+          <div className="proof-track">
+            {PROOF_ITEMS.map((item, i) => (
+              <span key={i} className={item === '✦' ? 'proof-star' : 'proof-word'}>{item}</span>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* ── CTA ── */}
       <section className="cta-section section">

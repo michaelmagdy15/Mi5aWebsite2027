@@ -153,8 +153,51 @@
 
 .pd-cta { align-self: flex-start; }
 
-/* ── SCREENSHOT ── */
-.pd-screenshot-section { padding: 0 0 80px; }
+/* ── SCREENSHOT (full-bleed parallax) ── */
+.pd-fullbleed-section {
+  padding: 0 0 80px;
+  overflow: hidden;
+}
+.pd-fullbleed-wrap {
+  position: relative;
+  height: 70vh;
+  overflow: hidden;
+}
+.pd-fullbleed-img {
+  width: 100%;
+  height: 130%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  will-change: transform;
+}
+.pd-fullbleed-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(5,5,5,0.2) 0%, rgba(5,5,5,0.5) 100%);
+  pointer-events: none;
+}
+.pd-fullbleed-label {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.pd-img-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.5);
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  padding: 6px 16px;
+  backdrop-filter: blur(8px);
+}
+@media (max-width: 768px) {
+  .pd-fullbleed-wrap { height: 50vh; }
+}
+
 .pd-img-frame {
   position: relative;
   border-radius: 4px;

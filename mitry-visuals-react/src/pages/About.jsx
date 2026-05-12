@@ -97,6 +97,30 @@ export default function About() {
         </section>
       )}
 
+      {/* ── PROCESS ── */}
+      <section className="process-section section">
+        <div className="container">
+          <div className="sec-header-simple reveal invisible">
+            <div className="section-label">HOW I WORK</div>
+          </div>
+          <div className="process-grid">
+            {[
+              { num: '01', title: 'BRIEF',   desc: 'Deep-dive into your goals, audience, and vision to align on direction.' },
+              { num: '02', title: 'CONCEPT', desc: 'Crafting a creative direction, mood board, and visual language.' },
+              { num: '03', title: 'EXECUTE', desc: 'Full production — motion design, VFX, web build, and iteration.' },
+              { num: '04', title: 'DELIVER', desc: 'Polish, final feedback round, and delivery in any format you need.' },
+            ].map((step, i) => (
+              <div key={step.num} className="process-step reveal invisible" style={{ '--si': i }}>
+                <div className="process-connector" />
+                <div className="process-num">{step.num}</div>
+                <h3 className="process-title">{step.title}</h3>
+                <p className="process-desc">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── EXPERIENCE ── */}
       {experience.length > 0 && (
         <section className="exp-section section">

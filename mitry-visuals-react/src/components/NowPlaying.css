@@ -1,0 +1,58 @@
+.now-playing {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  background: rgba(8, 8, 8, 0.88);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 100px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  cursor: default;
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s;
+  pointer-events: auto;
+}
+.now-playing:hover {
+  transform: translateY(-4px);
+  border-color: rgba(239,68,68,0.3);
+}
+.np-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 18px;
+}
+.np-bar {
+  width: 2px;
+  background: #ef4444;
+  border-radius: 2px;
+  animation: np-eq calc(0.5s + var(--i) * 0.07s) ease-in-out infinite alternate;
+}
+@keyframes np-eq {
+  from { height: 2px; }
+  to   { height: var(--mh, 12px); }
+}
+.np-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.np-label {
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #ef4444;
+}
+.np-name {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #f4f4f4;
+}
+@media (max-width: 768px) {
+  .now-playing { bottom: 16px; right: 16px; padding: 8px 14px; }
+}

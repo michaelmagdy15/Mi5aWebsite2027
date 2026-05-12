@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Preloader from './components/Preloader'
 import Home from './pages/Home'

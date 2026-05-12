@@ -63,32 +63,32 @@ export default function Preloader({ onDone }) {
 
   // Sequence
   useEffect(() => {
-    // Phase 1: glitch name in
+    // Phase 1: glitch name in — start immediately
     const t1 = setTimeout(() => {
       glitchText('MITRY', () => {
         setShowTagline(true)
         setShowBar(true)
       })
-    }, 400)
+    }, 100)
 
     // Phase 2: count up fast
     const t2 = setTimeout(() => {
       let n = 0
       const iv = setInterval(() => {
-        n += Math.floor(Math.random() * 5) + 2
+        n += Math.floor(Math.random() * 8) + 4
         if (n >= 100) { n = 100; clearInterval(iv) }
         setCount(n)
-      }, 25)
-    }, 600)
+      }, 18)
+    }, 200)
 
     // Phase 3: glitch flash
-    const t3 = setTimeout(() => setPhase('glitch'), 2600)
+    const t3 = setTimeout(() => setPhase('glitch'), 1400)
 
     // Phase 4: split exit
-    const t4 = setTimeout(() => setPhase('exit'), 3000)
+    const t4 = setTimeout(() => setPhase('exit'), 1650)
 
     // Phase 5: done
-    const t5 = setTimeout(() => onDone(), 3700)
+    const t5 = setTimeout(() => onDone(), 2000)
 
     return () => [t1,t2,t3,t4,t5].forEach(clearTimeout)
   }, [onDone])

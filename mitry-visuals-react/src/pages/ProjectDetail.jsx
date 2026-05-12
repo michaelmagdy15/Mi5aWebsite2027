@@ -2,12 +2,15 @@ import { useRef } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import { useProjects } from '../hooks/useContent'
+import { useParallax } from '../hooks/useParallax'
 import './ProjectDetail.css'
 
 export default function ProjectDetail() {
   const { id } = useParams()
   const pageRef = useRef(null)
+  const imgRef  = useRef(null)
   useReveal(pageRef)
+  useParallax(imgRef, 40)
   const navigate = useNavigate()
 
   const { projects, loading, error } = useProjects()
@@ -106,21 +109,19 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* ── SCREENSHOT ── */}
+      {/* ── SCREENSHOT (full-bleed parallax) ── */}
       {project.image && (
-        <section className="pd-screenshot-section">
-          <div className="container">
-            <div className="pd-img-frame reveal invisible">
-              <div className="pd-img-corner pd-tl" />
-              <div className="pd-img-corner pd-tr" />
-              <div className="pd-img-corner pd-bl" />
-              <div className="pd-img-corner pd-br" />
-              <img
-                src={project.image}
-                alt={project.title}
-                className="pd-screenshot"
-              />
-              <div className="pd-img-overlay" />
+        <section className="pd-screenshot-section pd-fullbleed-section">
+          <div className="pd-fullbleed-wrap reveal invisible">
+            <img
+              ref={imgRef}
+              src={project.image}
+              alt={project.title}
+              className="pd-fullbleed-img"
+            />
+            <div className="pd-fullbleed-overlay" />
+            <div className="pd-fullbleed-label container">
+              <span className="pd-img-tag">{project.category}</span>
             </div>
           </div>
         </section>
