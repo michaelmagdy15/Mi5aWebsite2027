@@ -32,7 +32,7 @@ export default function Footer() {
               </div>
               <div className="footer-col">
                 <span className="footer-col-title">SOCIAL</span>
-                <a href="https://instagram.com/mitry.visuals" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="https://www.instagram.com/mitryvisuals" target="_blank" rel="noreferrer">Instagram</a>
                 <a href="https://behance.net" target="_blank" rel="noreferrer">Behance</a>
               </div>
             </div>
