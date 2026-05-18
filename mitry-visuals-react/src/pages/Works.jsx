@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { useReveal } from '../hooks/useReveal'
 import { useProjects } from '../hooks/useContent'
+import ReelModal, { isInstagramLink } from '../components/ReelModal'
 import './Works.css'
 
 const CATEGORIES = ['ALL', 'VISUAL EFFECTS', 'WEB DESIGN', 'PHOTO EDITING', 'MOTION DESIGN', 'PHOTOGRAPHY', 'VISUAL EFFECTS + AI']
@@ -11,10 +12,19 @@ export default function Works() {
 
   const { projects, loading, error } = useProjects()
   const [active, setActive] = useState('ALL')
+  const [selectedProject, setSelectedProject] = useState(null)
 
   const filtered = active === 'ALL'
     ? projects
     : projects.filter(p => p.category.toUpperCase() === active)
+
+  function handleCardClick(e, project) {
+    if (isInstagramLink(project.link)) {
+      e.preventDefault()
+      setSelectedProject(project)
+    }
+    // Non-Instagram links: let the <a href> open naturally in new tab
+  }
 
   return (
     <div className="works-page" ref={pageRef}>
@@ -68,32 +78,45 @@ export default function Works() {
           )}
           {!loading && !error && (
             <div className="works-grid">
-              {filtered.map((p, i) => (
-                <a
-                  key={p.id}
-                  href={p.link}
-                  target={p.link !== '#' ? '_blank' : undefined}
-                  rel="noreferrer"
-                  className={`work-card reveal invisible${p.featured ? ' work-featured' : ''}`}
-                  style={{ '--i': i }}
-                >
-                  <div className="work-img-wrap">
-                    <img src={p.image} alt={p.title} loading="lazy" />
-                    <div className="work-img-overlay" />
-                  </div>
-                  <div className="work-info">
-                    <div className="work-meta">
-                      <span className="work-cat">{p.category}</span>
-                      {p.featured && <span className="work-featured-badge">FEATURED</span>}
+              {filtered.map((p, i) => {
+                const isReel = isInstagramLink(p.link)
+                return (
+                  <a
+                    key={p.id}
+                    href={p.link !== '#' ? p.link : undefined}
+                    target={!isReel && p.link !== '#' ? '_blank' : undefined}
+                    rel="noreferrer"
+                    className={`work-card reveal invisible${p.featured ? ' work-featured' : ''}${isReel ? ' work-has-reel' : ''}`}
+                    style={{ '--i': i }}
+                    onClick={(e) => handleCardClick(e, p)}
+                  >
+                    <div className="work-img-wrap">
+                      <img src={p.image} alt={p.title} loading="lazy" />
+                      <div className="work-img-overlay" />
+                      {/* Play badge for reels */}
+                      {isReel && (
+                        <div className="work-play-badge" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                          PLAY REEL
+                        </div>
+                      )}
                     </div>
-                    <div className="work-bottom">
-                      <h3 className="work-title">{p.title}</h3>
-                      <div className="work-arrow">↗</div>
+                    <div className="work-info">
+                      <div className="work-meta">
+                        <span className="work-cat">{p.category}</span>
+                        {p.featured && <span className="work-featured-badge">FEATURED</span>}
+                      </div>
+                      <div className="work-bottom">
+                        <h3 className="work-title">{p.title}</h3>
+                        <div className="work-arrow">{isReel ? '▶' : '↗'}</div>
+                      </div>
+                      {p.description && <p className="work-desc">{p.description}</p>}
                     </div>
-                    {p.description && <p className="work-desc">{p.description}</p>}
-                  </div>
-                </a>
-              ))}
+                  </a>
+                )
+              })}
             </div>
           )}
           {!loading && !error && filtered.length === 0 && (
@@ -101,6 +124,14 @@ export default function Works() {
           )}
         </div>
       </section>
+
+      {/* ── REEL MODAL ── */}
+      {selectedProject && (
+        <ReelModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </div>
   )
 }
