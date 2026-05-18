@@ -6,7 +6,7 @@ import './DreamWebsite.css'
 // 👇 PASTE YOUR YOUTUBE VIDEO ID HERE once you've uploaded it
 //    e.g. for https://youtu.be/dQw4w9WgXcQ  →  'dQw4w9WgXcQ'
 // ─────────────────────────────────────────────────────────────
-const YOUTUBE_VIDEO_ID = '' // ← add your ID here
+const YOUTUBE_VIDEO_ID = 'afhi0UxvDvs'
 
 /* ── Floating particle ── */
 function Particle({ style }) {
