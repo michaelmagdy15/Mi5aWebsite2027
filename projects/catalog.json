@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-18T14:49:57.730Z",
+  "generated": "2026-05-18T15:39:15.674Z",
   "count": 14,
   "projects": [
     {
@@ -90,7 +90,7 @@
       "link": "https://www.instagram.com/reel/DBvzw3BI2lF/?igsh=MWVmdDVoMTBmY2Uxdw==",
       "featured": true,
       "order": 9,
-      "image": "/images/Screenshot_13-1024x576.jpg"
+      "image": "/images/STRONGER TOGETHER.jpg"
     },
     {
       "id": "strike-egypt-coach-shady",
@@ -100,7 +100,7 @@
       "link": "https://www.instagram.com/reel/DBwBkD4I0zl/?igsh=NTkza3R2enV0NGdv",
       "featured": false,
       "order": 10,
-      "image": "/images/Screenshot_13-1024x576.jpg"
+      "image": "/images/COACH SHADY.jpg"
     },
     {
       "id": "strike-egypt-unleash",
@@ -110,7 +110,7 @@
       "link": "https://www.instagram.com/reel/DCIAkqboLzO/?igsh=MTRpeno4dTdvejhtaA==",
       "featured": false,
       "order": 11,
-      "image": "/images/Screenshot_13-1024x576.jpg"
+      "image": "/images/UNLEASH YOUR STRENGTH.jpg"
     },
     {
       "id": "strike-egypt-kids",
@@ -120,7 +120,7 @@
       "link": "https://www.instagram.com/reel/DCuA5YxIX8I/?igsh=Y21oNXM2aTlwOXdq",
       "featured": false,
       "order": 12,
-      "image": "/images/Screenshot_13-1024x576.jpg"
+      "image": "/images/KIDS KICKSTARTER.jpg"
     },
     {
       "id": "strike-egypt-action",
@@ -130,7 +130,7 @@
       "link": "https://www.instagram.com/reel/DDcO7HCoBru/?igsh=OGE1dTZ2MGw5bnpl",
       "featured": false,
       "order": 13,
-      "image": "/images/Screenshot_13-1024x576.jpg"
+      "image": "/images/JUST ACTION.jpg"
     },
     {
       "id": "strike-egypt-together",
@@ -140,7 +140,7 @@
       "link": "https://www.instagram.com/reel/DDr0tXtgqJm/?igsh=dzZ3d214YXgwenJ5",
       "featured": false,
       "order": 14,
-      "image": "/images/Screenshot_13-1024x576.jpg"
+      "image": "/images/JUST STRIKING.jpg"
     }
   ]
 }
