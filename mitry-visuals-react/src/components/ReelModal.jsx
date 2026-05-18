@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './ReelModal.css'
 
 /**
@@ -20,6 +20,7 @@ export function isInstagramLink(link) {
 export default function ReelModal({ project, onClose }) {
   const overlayRef = useRef(null)
   const embedUrl = getInstaEmbedUrl(project?.link)
+  const [loaded, setLoaded] = useState(false)
 
   // Lock body scroll while open
   useEffect(() => {
@@ -53,16 +54,31 @@ export default function ReelModal({ project, onClose }) {
           </svg>
         </button>
 
-        {/* Instagram embed iframe — 9:16 aspect ratio */}
+        {/* Video wrapper */}
         <div className="rm-video-wrap">
+
+          {/* Thumbnail shown instantly while iframe loads */}
+          {!loaded && (
+            <div className="rm-poster">
+              <img src={project.image} alt={project.title} className="rm-poster-img" />
+              {/* Spinner */}
+              <div className="rm-loader-ring">
+                <div className="rm-spinner" />
+                <span className="rm-loader-label">Loading reel…</span>
+              </div>
+            </div>
+          )}
+
+          {/* Instagram embed iframe — fades in once loaded */}
           <iframe
-            className="rm-iframe"
+            className={`rm-iframe${loaded ? ' rm-iframe-visible' : ''}`}
             src={embedUrl}
             title={project.title}
             frameBorder="0"
             scrolling="no"
             allowTransparency="true"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            onLoad={() => setLoaded(true)}
           />
         </div>
 

@@ -61,6 +61,7 @@
 
 /* ── Video wrapper — enforces 9:16 ── */
 .rm-video-wrap {
+  position: relative;
   width: 100%;
   aspect-ratio: 9 / 16;
   border-radius: 12px;
@@ -70,11 +71,67 @@
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
 }
 
+/* ── Poster (thumbnail shown while iframe loads) ── */
+.rm-poster {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.rm-poster-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.45) blur(2px);
+}
+
+/* ── Spinner ── */
+.rm-loader-ring {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.rm-spinner {
+  width: 36px;
+  height: 36px;
+  border: 2.5px solid rgba(255, 255, 255, 0.15);
+  border-top-color: #ef4444;
+  border-radius: 50%;
+  animation: rm-spin 0.75s linear infinite;
+}
+@keyframes rm-spin { to { transform: rotate(360deg); } }
+.rm-loader-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+/* ── Iframe — hidden until loaded, then fades in ── */
 .rm-iframe {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   border: none;
   display: block;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+.rm-iframe-visible {
+  opacity: 1;
+  z-index: 3;
 }
 
 /* ── Info below video ── */
